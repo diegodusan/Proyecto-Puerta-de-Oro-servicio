@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <div style="text-align: center; margin: 2rem 0;">
             <h2>Ventas del Turno</h2>
-            <p style="font-size: 3rem; color: var(--gold-primary);">$0.00</p>
+            <p style="font-size: 3rem; color: var(--brand-lime);">$0.00</p>
             <small>(Calculado automáticamente desde Ventas)</small>
         </div>
 

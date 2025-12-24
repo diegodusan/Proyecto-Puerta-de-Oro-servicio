@@ -19,24 +19,25 @@ if (isset($_SESSION['user_id'])) {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            background: radial-gradient(circle at center, var(--bg-card) 0%, var(--bg-dark) 100%);
         }
         .login-card {
             width: 100%;
             max-width: 400px;
             padding: 2.5rem;
-            background: rgba(30, 30, 30, 0.95);
-            border: 1px solid var(--gold-primary);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            background: rgba(19, 27, 36, 0.95);
+            border: 1px solid var(--brand-teal);
+            box-shadow: 0 0 30px rgba(0, 158, 115, 0.2);
         }
         .logo {
             text-align: center;
-            color: var(--gold-primary);
+            color: var(--brand-lime);
             font-size: 2rem;
             margin-bottom: 2rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(164, 198, 57, 0.3);
         }
     </style>
 </head>

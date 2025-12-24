@@ -37,7 +37,7 @@ $products = $pdo->query("SELECT * FROM products WHERE stock > 0")->fetchAll();
                  style="cursor: pointer; text-align: center; padding: 1rem; transition: transform 0.1s;">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">🍸</div>
                 <h4 style="font-size: 0.9rem; height: 40px; overflow: hidden;"><?php echo htmlspecialchars($p['name']); ?></h4>
-                <p style="color: var(--gold-primary); font-weight: bold;">$<?php echo number_format($p['sale_price'], 0); ?></p>
+                <p style="color: var(--brand-lime); font-weight: bold;">$<?php echo number_format($p['sale_price'], 0); ?></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -54,7 +54,7 @@ $products = $pdo->query("SELECT * FROM products WHERE stock > 0")->fetchAll();
         <div style="margin-top: auto;">
             <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">
                 <span>Total:</span>
-                <span id="cart-total" style="color: var(--gold-primary);">$0</span>
+                <span id="cart-total" style="color: var(--brand-lime);">$0</span>
             </div>
             <button class="btn btn-primary" style="width: 100%;" onclick="processSale()">COBRAR</button>
         </div>
@@ -75,7 +75,7 @@ $products = $pdo->query("SELECT * FROM products WHERE stock > 0")->fetchAll();
 <style>
     .btn-mini { background: #333; border: 1px solid #555; color: white; border-radius: 4px; cursor: pointer; }
     .btn-icon { background: none; border: none; font-size: 1.2rem; cursor: pointer; }
-    .text-gold { color: var(--gold-primary); }
+    .text-gold { color: var(--brand-lime); }
     .text-danger { color: var(--danger); }
 </style>
 <button class="btn btn-primary" style="width: 100%;" onclick="processSaleWrapper()">COBRAR</button>

@@ -41,7 +41,7 @@ $sales = $stmt->fetchAll();
                 <td><?php echo $s['created_at']; ?></td>
                 <td><?php echo htmlspecialchars($s['username'] ?? 'N/A'); ?></td>
                 <td>#<?php echo $s['caja_id']; ?></td>
-                <td style="color: var(--gold-primary); font-weight: bold;">$<?php echo number_format($s['total'], 0); ?></td>
+                <td style="color: var(--brand-lime); font-weight: bold;">$<?php echo number_format($s['total'], 0); ?></td>
                 <td>
                     <a href="ticket.php?id=<?php echo $s['id']; ?>" target="_blank" class="btn btn-outline" style="font-size: 0.8rem;">Ver Ticket</a>
                 </td>

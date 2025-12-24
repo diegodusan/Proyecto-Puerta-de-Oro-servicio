@@ -16,8 +16,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/style.css">
     <style>
-        .sidebar { background: #000; border-right: 1px solid var(--gold-primary); }
-        .nav-link.active { border-left: 3px solid var(--gold-primary); }
+        .sidebar { background: var(--sidebar-gradient); border-right: 1px solid rgba(255,255,255,0.05); }
+        .nav-link.active { border-left: 3px solid var(--brand-lime); background: linear-gradient(90deg, rgba(0, 158, 115, 0.1) 0%, transparent 100%); color: var(--brand-teal); }
     </style>
 </head>
 <body>

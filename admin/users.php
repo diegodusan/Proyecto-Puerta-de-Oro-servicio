@@ -73,7 +73,7 @@ $users = $pdo->query("SELECT * FROM users ORDER BY id DESC")->fetchAll();
                 <tr>
                     <td><?php echo $u['id']; ?></td>
                     <td>
-                        <span style="font-weight: bold; color: var(--gold-primary);"><?php echo htmlspecialchars($u['username']); ?></span>
+                        <span style="font-weight: bold; color: var(--brand-lime);"><?php echo htmlspecialchars($u['username']); ?></span>
                     </td>
                     <td>
                         <span class="badge" style="padding: 2px 8px; border-radius: 4px; background: #333; font-size: 0.8rem;">

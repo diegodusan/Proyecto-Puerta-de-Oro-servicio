@@ -15,7 +15,7 @@ $lowStock = $pdo->query("SELECT COUNT(*) FROM products WHERE stock < 5")->fetchC
 <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
     <div class="card">
         <h3>Ventas Totales</h3>
-        <p style="font-size: 1.5rem; color: var(--gold-primary);">$<?php echo number_format($totalSales, 0); ?></p>
+        <p style="font-size: 1.5rem; color: var(--brand-lime);">$<?php echo number_format($totalSales, 0); ?></p>
     </div>
     <div class="card">
         <h3>Usuarios</h3>

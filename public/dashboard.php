@@ -20,7 +20,7 @@ require '../includes/header.php';
     <!-- Widget Ventas -->
     <div class="card">
         <h3>Ventas Hoy</h3>
-        <p style="font-size: 2rem; color: var(--gold-primary); font-weight: bold;">0</p>
+        <p style="font-size: 2rem; color: var(--brand-lime); font-weight: bold;">0</p>
         <p style="color: var(--text-secondary);">Tickets generados</p>
         <a href="pos.php" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Nueva Venta</a>
     </div>
