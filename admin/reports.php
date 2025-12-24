@@ -45,21 +45,21 @@ $topProds = $stmt2->fetchAll();
     <button class="btn btn-primary">Filtrar</button>
 </form>
 
-<div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-    <div class="card" style="flex: 1;">
-        <h3>Ventas por Categoría</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 2rem;">
+    <div class="card glass-panel" style="animation-delay: 0.1s;">
+        <h3 style="border-bottom: 2px solid rgba(255,255,255,0.05); padding-bottom: 1rem;">📊 Ventas por Categoría</h3>
         <table>
             <?php foreach($byCat as $row): ?>
             <tr>
                 <td><?php echo $row['name']; ?></td>
-                <td style="text-align: right;">$<?php echo number_format($row['total'], 0); ?></td>
+                <td style="text-align: right; color: var(--brand-lime); font-weight: bold;">$<?php echo number_format($row['total'], 0); ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
     </div>
 
-    <div class="card" style="flex: 1;">
-        <h3>Top 5 Productos</h3>
+    <div class="card glass-panel" style="animation-delay: 0.2s;">
+        <h3 style="border-bottom: 2px solid rgba(255,255,255,0.05); padding-bottom: 1rem;">🏆 Top 5 Productos</h3>
         <table>
             <thead><tr><th>Producto</th><th>Cant.</th><th>Total</th></tr></thead>
             <?php foreach($topProds as $row): ?>

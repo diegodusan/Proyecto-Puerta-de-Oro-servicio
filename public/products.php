@@ -37,25 +37,30 @@ $products = $stmt->fetchAll();
         </thead>
         <tbody>
             <?php foreach ($products as $p): ?>
-            <tr>
+            <tr style="cursor: pointer;">
                 <td>
                     <?php if($p['image_path']): ?>
-                        <img src="<?php echo $p['image_path']; ?>" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                        <img src="<?php echo $p['image_path']; ?>" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
                     <?php else: ?>
-                        <span style="font-size: 1.5rem;">🍸</span>
+                        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🍸</div>
                     <?php endif; ?>
                 </td>
-                <td><?php echo htmlspecialchars($p['name']); ?></td>
-                <td><?php echo htmlspecialchars($p['category_name'] ?? 'Sin Categ.'); ?></td>
-                <td style="color: var(--success); font-weight: bold;">$<?php echo number_format($p['sale_price'], 0); ?></td>
+                <td>
+                    <div style="font-weight: 600; font-size: 1.1rem;"><?php echo htmlspecialchars($p['name']); ?></div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);"><?php echo htmlspecialchars($p['code'] ?? ''); ?></div>
+                </td>
+                <td><span class="badge" style="background: rgba(0, 158, 115, 0.1); color: var(--brand-teal);"><?php echo htmlspecialchars($p['category_name'] ?? 'Sin Categ.'); ?></span></td>
+                <td style="color: var(--brand-lime); font-weight: bold; font-size: 1.1rem;">$<?php echo number_format($p['sale_price'], 0); ?></td>
                 <td>
                     <?php 
-                    $color = $p['stock'] < 10 ? 'var(--danger)' : 'white';
-                    echo "<span style='color: $color'>{$p['stock']}</span>"; 
+                    $isLow = $p['stock'] < 10;
+                    $class = $isLow ? 'badge-danger' : 'badge-success';
+                    $icon = $isLow ? '⚠️' : '✅';
+                    echo "<span class='badge $class'>$icon {$p['stock']}</span>"; 
                     ?>
                 </td>
                 <td>
-                    <a href="product_form.php?id=<?php echo $p['id']; ?>" style="color: var(--neon-accent);">Editar</a>
+                    <a href="product_form.php?id=<?php echo $p['id']; ?>" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Editar</a>
                 </td>
             </tr>
             <?php endforeach; ?>

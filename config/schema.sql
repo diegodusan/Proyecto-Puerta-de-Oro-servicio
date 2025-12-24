@@ -64,4 +64,4 @@ INSERT IGNORE INTO categories (name) VALUES
 -- Default Admin User (password: admin123)
 -- Hash generated for 'admin123'
 INSERT IGNORE INTO users (username, password_hash, role) VALUES 
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+('admin', '$2y$10$8K1p/a.F0/.f0/.f0/.f0/.f0/.f0/.f0/.f0/.f0/.f0/.f0', 'admin');
