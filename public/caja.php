@@ -21,8 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Refresh:0");
     } elseif (isset($_POST['close_caja'])) {
         $id = $_POST['register_id'];
-        // Calculate total sales for this register (TODO: Real calculation)
-        $totalSales = 0; // Placeholder until POS is linked
+        // Calculate total sales for this register REAL
+        $stmtSum = $pdo->prepare("SELECT SUM(total) FROM sales WHERE cash_register_id = ?");
+        $stmtSum->execute([$id]);
+        $totalSales = $stmtSum->fetchColumn() ?: 0;
+        
         $finalBalance = $register['opening_balance'] + $totalSales;
         
         $stmt = $pdo->prepare("UPDATE cash_register SET closing_balance = ?, status = 'closed', closing_time = NOW() WHERE id = ?");
@@ -60,10 +63,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <hr style="border-color: #333; margin: 1rem 0;">
         
-        <div style="text-align: center; margin: 2rem 0;">
+        <?php
+        $stmtSales = $pdo->prepare("SELECT SUM(total) FROM sales WHERE cash_register_id = ?");
+        $stmtSales->execute([$register['id']]);
+        $turnSales = $stmtSales->fetchColumn() ?: 0;
+        ?>
+        <div style="text-align: center; margin: 2rem 0; padding: 2rem; border-radius: 12px; background: rgba(0,0,0,0.2);">
             <h2>Ventas del Turno</h2>
-            <p style="font-size: 3rem; color: var(--brand-lime);">$0.00</p>
-            <small>(Calculado automáticamente desde Ventas)</small>
+            <p style="font-size: 3.5rem; color: var(--brand-lime); font-weight: 800; margin: 1rem 0;">$<?php echo number_format($turnSales, 0); ?></p>
+            <p style="color: var(--text-secondary);">Total en Caja (Estimado): <strong style="color: white;">$<?php echo number_format($register['opening_balance'] + $turnSales, 0); ?></strong></p>
         </div>
 
         <form method="POST">

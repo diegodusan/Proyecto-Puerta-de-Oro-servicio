@@ -15,9 +15,9 @@ $stmt->execute();
 $products = $stmt->fetchAll();
 ?>
 
-<div class="header-actions" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+<div class="header-actions" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem;">
     <h1>Inventario de Productos</h1>
-    <div>
+    <div style="display: flex; gap: 1rem;">
         <a href="product_form.php" class="btn btn-primary">Nuevo Producto</a>
         <a href="import_exec.php" class="btn btn-outline" onclick="return confirm('¿Importar desde Excel? Esto añadirá productos.')">Importar Excel</a>
     </div>
@@ -40,7 +40,10 @@ $products = $stmt->fetchAll();
             <tr style="cursor: pointer;">
                 <td>
                     <?php if($p['image_path']): ?>
-                        <img src="<?php echo $p['image_path']; ?>" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                        <img src="<?php echo htmlspecialchars($p['image_path']); ?>" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                        <div style="display: none; width: 50px; height: 50px; background: rgba(255,255,255,0.05); border-radius: 8px; align-items: center; justify-content: center; font-size: 1.5rem;">🍸</div>
                     <?php else: ?>
                         <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🍸</div>
                     <?php endif; ?>
